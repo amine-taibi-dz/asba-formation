@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.3 (RELEASE-2.4.3-ad3323c; 2019-01-21T17:46:06+0000) JAXWS-RI/2.3.2 JAXWS-API/2.3.2 JAXB-RI/2.3.2 JAXB-API/2.3.2 git-revision#unknown. --><xs:schema xmlns:tns="http://ws.biz.manger.rh.hr.acs.dz/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.biz.manger.rh.hr.acs.dz/">
+
+<xs:element name="employee" type="tns:employee"/>
+
+<xs:element name="employee_create" type="tns:employee_create"/>
+
+<xs:element name="employee_createResponse" type="tns:employee_createResponse"/>
+
+<xs:complexType name="employee_create">
+<xs:sequence>
+<xs:element name="arg0" type="tns:employee" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="employee">
+<xs:sequence>
+<xs:element name="enterYear" type="xs:long" minOccurs="0"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="matricule" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="employee_createResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:employee" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
