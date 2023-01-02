@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Employee Management</title>
+    </h:head>
+    <h:body>
+       <!--  <h:outputLabel  rendered="#{employeeManagedBean.employee2Create.id ne null}" 
+                 value="#{employeeManagedBean.employee2Create.id}" />  -->
+        <h:form>            
+            <h:outputLabel value="Nom : " />
+            <h:inputText value="#{employeeManagedBean.employee2Create.firstName}"   />
+            <br/><h:outputLabel value="Prénom : " />
+            <h:inputText value="#{employeeManagedBean.employee2Create.lastName}"   />
+            <br/><h:outputLabel value="Matricle : " />
+            <h:inputText value="#{employeeManagedBean.employee2Create.matricule}"   />
+            <br/><h:outputLabel value="Date recrutement : " />
+            <h:inputText value="#{employeeManagedBean.employee2Create.enterYear}"   />
+            <br/><h:commandButton  value="Enregistrer"  action="#{employeeManagedBean.save()}" />
+            
+        </h:form>
+        
+    </h:body>
+</html>
