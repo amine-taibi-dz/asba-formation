@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  appsvr:
+    image: 38leinad/was-9
+    ports:
+     - "80:9080"
+     - "9060:9060"
+    volumes:
+     - /etc/localtime:/etc/localtime:ro
+     - "./target/jee-00.war:/opt/IBM/WebSphere/AppServer/profiles/AppSrv01/monitoredDeployableApps/servers/server1/jee-00.war"
+    healthcheck:
+      test: wget --quiet --tries=1 --spider http://localhost:9080/jee-00/resources/health || exit 1
+      interval: 5s
+      timeout: 10s
+      retries: 10

@@ -1,0 +1,13 @@
+version: '2.1'
+services:
+  appsvr:
+    image: oracle/glassfish:5.0
+    ports:
+     - "80:8080"
+    volumes:
+     - "./target/jee-00.war:/glassfish5/glassfish/domains/domain1/autodeploy/jee-00.war"
+    healthcheck:
+      test: curl --fail http://127.0.0.1:8080/jee-00/resources/health || exit 1
+      interval: 5s
+      timeout: 10s
+      retries: 3

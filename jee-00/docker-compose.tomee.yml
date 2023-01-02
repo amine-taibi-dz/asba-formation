@@ -1,0 +1,13 @@
+version: '2.1'
+services:
+  appsvr:
+    image: tomee:8-jre-7.0.4-plume
+    ports:
+     - "80:8080"
+    volumes:
+     - "./target/jee-00.war:/usr/local/tomee/webapps/jee-00.war"
+    healthcheck:
+      test: wget --quiet --tries=1 --spider http://localhost:8080/jee-00/resources/health || exit 1
+      interval: 5s
+      timeout: 10s
+      retries: 3
