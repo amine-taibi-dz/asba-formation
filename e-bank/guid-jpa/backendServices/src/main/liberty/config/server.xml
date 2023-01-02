@@ -1,0 +1,44 @@
+<server description="Sample Liberty server">
+
+  <featureManager>
+    <feature>restfulWS-3.0</feature>
+    <feature>jsonb-2.0</feature>
+    <feature>jsonp-2.0</feature>
+    <feature>cdi-3.0</feature>
+    <feature>persistence-3.0</feature>
+  </featureManager>
+
+  <variable name="default.http.port" defaultValue="5050" />
+  <variable name="default.https.port" defaultValue="5051" />
+
+  <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
+                id="defaultHttpEndpoint" host="*" />
+
+  <application location="backendServices.war" type="war" context-root="/"></application>
+
+  <!-- Derby Library Configuration -->
+<!--   <library id="derbyJDBCLib"> -->
+<!--     <fileset dir="${shared.resource.dir}/" includes="derby*.jar" /> -->
+<!--   </library> -->
+  
+  <library id="mysqlJDBCLib">
+    <fileset dir="${shared.resource.dir}/" includes="mysql-*.jar" />
+  </library>
+
+  <!-- Datasource Configuration -->
+  <!-- tag::data-source[] -->
+<!--   <dataSource id="eventjpadatasource" jndiName="jdbc/eventjpadatasource"> -->
+<!--     <jdbcDriver libraryRef="derbyJDBCLib" /> -->
+<!--     <properties.derby.embedded databaseName="EventDB" createDatabase="create" /> -->
+<!--   </dataSource> -->
+  
+  <dataSource id="eventjpadatasource-mysql" jndiName="jdbc/eventjpadatasource-mysql">
+    <jdbcDriver libraryRef="mysqlJDBCLib" />
+    <properties serverName="localhost" portNumber="3306"
+                databaseName="test" user="root" password="root"/>
+  </dataSource>
+  
+  
+  <!-- end::data-source[] -->
+
+</server>
